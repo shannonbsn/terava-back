@@ -1,0 +1,11 @@
+created:
+    - database/factories/UserFactory.php
+    - database/factories/ProfileFactory.php
+    - database/migrations/2025_04_16_144003_create_users_table.php
+    - database/migrations/2025_04_16_144004_create_profiles_table.php
+    - app/Models/User.php
+    - app/Models/Profile.php
+models:
+    Profile: { username: string, location: string, interests: 'array:string', bio: string, profile_picture: string, user_id: 'id foreign:User', relationships: { belongsTo: User } }
+    User: { name: string, email: string, password: string, relationships: { hasOne: profile.user_id } }
+    Profiles: { username: string, location: string, interests: 'array:string', bio: string, profile_picture: string, user_id: integer }
